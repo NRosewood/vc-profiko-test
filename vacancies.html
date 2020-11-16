@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="assets/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#fb2740" />
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml" />
+    <meta name="theme-color" content="#fb2740" />
+    <title>Профико — Всероссийская ассоциация мастеров бытового ремонта</title>
+    <link href="./assets/css/1.style.css" rel="stylesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="header"></div>
+    <div
+      class="modal fade"
+      id="callback"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="callbackLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="modal-wrap">
+            <div class="modal-header">
+              <h5 class="modal-title" id="callbackLabel">Оставьте заявку</h5>
+              <h6 class="modal-subtitle">
+                Мы свяжемся с Вами в течение минуты и расскажем про собеседование и трудоустройство
+              </h6>
+            </div>
+            <div class="modal-body">
+              <form>
+                <span><input type="hidden" name="formname" value="" /> </span
+                ><span class="form-control-wrap"
+                  ><input class="form-control" placeholder="Ваше имя" name="fullname" /> </span
+                ><span class="form-control-wrap"
+                  ><input type="tel" class="form-control" placeholder="Ваш телефон" name="phone" required /> </span
+                ><span class="form-select"
+                  ><select name="vacancy"
+                    ><option value="" disabled="disabled" selected="selected">Вакансия</option
+                    ><option value="Мастер-универсал">Мастер-универсал</option
+                    ><option value="Слесарь-сантехник">Слесарь-сантехник</option
+                    ><option value="Разнорабочий">Разнорабочий</option
+                    ><option value="Диспетчер">Диспетчер</option
+                    ><option value="Бригадир">Бригадир</option
+                    ><option value="Помощник мастера">Помощник мастера</option
+                    ><option value="Электрик">Электрик</option></select
+                  > </span
+                ><button type="submit" class="btn btn-blue">Отправить заявку</button>
+              </form>
+              <small class="form-text"
+                >Нажимая кнопку “Отправить заявку” Вы соглашаетесь на обработку персональных данных.</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="answer" tabindex="-1" role="dialog" aria-labelledby="answerLabel" aria-hidden="true">
+      <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="modal-wrap">
+            <div class="modal-header">
+              <h5 class="modal-title" id="answerLabel">Оставьте заявку</h5>
+              <h6 class="modal-subtitle">
+                Мы свяжемся с Вами в течение минуты и расскажем про собеседование и трудоустройство
+              </h6>
+            </div>
+            <div class="modal-body">
+              <form>
+                <span><input type="hidden" name="formname" value="" /> </span
+                ><span class="form-control-wrap"
+                  ><input class="form-control" placeholder="Ваше имя" name="fullname" /> </span
+                ><span class="form-control-wrap"
+                  ><input type="tel" class="form-control" placeholder="Ваш телефон" name="phone" required /> </span
+                ><button type="submit" class="btn btn-blue">Отправить заявку</button>
+              </form>
+              <small class="form-text"
+                >Нажимая кнопку “Отправить заявку” Вы соглашаетесь на обработку персональных данных.</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="successLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="modal-wrap">
+            <div class="modal-header">
+              <h5 class="modal-title" id="successLabel">Ваша заявка отправлена</h5>
+              <h6 class="modal-subtitle">
+                Мы свяжемся с Вами в течение минуты и расскажем про собеседование и трудоустройство
+              </h6>
+            </div>
+            <div class="modal-body">
+              <button type="submit" class="btn btn-purple" data-dismiss="modal" aria-label="Close">Хорошо</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="modal-city"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modalCityLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="modal-wrap">
+            <div class="modal-header"><h5 class="modal-title" id="modalCityLabel">Выберите город</h5></div>
+            <div class="modal-body">
+              <span class="form-control-wrap"><input class="form-control" name="city" placeholder="Ваш город" /></span>
+              <div class="modal-city">
+                <div class="modal-city__item">Москва</div>
+                <div class="modal-city__item">Санкт-Петербург</div>
+                <div class="modal-city__item">Балашиха</div>
+                <div class="modal-city__item">Волгоград</div>
+                <div class="modal-city__item">Воронеж</div>
+                <div class="modal-city__item">Екатеринбург</div>
+                <div class="modal-city__item">Люберцы</div>
+                <div class="modal-city__item">Мытищи</div>
+                <div class="modal-city__item">Нижний Новгород</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="quiz" tabindex="-1" role="dialog" aria-labelledby="successLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="constructor">
+            <div class="constructor__wrap">
+              <form class="constructor__main">
+                <div class="constructor__question">Шаг 1. Что вас интересует?</div>
+                <div class="constructor__answers-list">
+                  <div class="constructor__answers-list-item constructor__answers-list-item--active">
+                    <div class="form-title">Укажите Ваш город</div>
+                    <span class="form-control-wrap"
+                      ><input class="form-control" name="city" placeholder="Название города" required
+                    /></span>
+                    <div class="constructor__vacancies">
+                      <div class="constructor__vacancies-title">Интересующая вакансия</div>
+                      <div class="constructor__vacancies-item">
+                        <label class="checkbox"
+                          ><input type="checkbox" name="vacancies" value="Мастер-универсал" />
+                          <span class="checkbox__checkmark"></span>
+                          <span class="checkbox__title">Мастер-универсал</span></label
+                        >
+                      </div>
+                      <div class="constructor__vacancies-item">
+                        <label class="checkbox"
+                          ><input type="checkbox" name="vacancies" value="Слесарь-сантехник" />
+                          <span class="checkbox__checkmark"></span>
+                          <span class="checkbox__title">Слесарь-сантехник</span></label
+                        >
+                      </div>
+                      <div class="constructor__vacancies-item">
+                        <label class="checkbox"
+                          ><input type="checkbox" name="vacancies" value="Разнорабочий" />
+                          <span class="checkbox__checkmark"></span>
+                          <span class="checkbox__title">Разнорабочий</span></label
+                        >
+                      </div>
+                      <div class="constructor__vacancies-item">
+                        <label class="checkbox"
+                          ><input type="checkbox" name="vacancies" value="Диспетчер" />
+                          <span class="checkbox__checkmark"></span>
+                          <span class="checkbox__title">Диспетчер</span></label
+                        >
+                      </div>
+                      <div class="constructor__vacancies-item">
+                        <label class="checkbox"
+                          ><input type="checkbox" name="vacancies" value="" />
+                          <span class="checkbox__checkmark"></span> <span class="checkbox__title">Бригадир</span></label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="constructor__answers-list-item">
+                    <div class="form-title">ФИО</div>
+                    <span class="form-control-wrap"
+                      ><input class="form-control" name="fullname" placeholder="Иванов Иван Иванович" required
+                    /></span>
+                    <div class="form-title">Номер телефона</div>
+                    <span class="form-control-wrap"
+                      ><input type="tel" class="form-control" name="phone" placeholder="+7" required
+                    /></span>
+                    <div class="form-title">Адрес электронной почты</div>
+                    <span class="form-control-wrap"
+                      ><input class="form-control" name="city" placeholder="mail@example.com" required
+                    /></span>
+                    <div class="form-title">Какие виды работ Вы готовы выполнять</div>
+                    <span class="form-select" multiple="multiple"
+                      ><select name="worktypes"
+                        ><option value="" disabled="disabled" selected="selected">Виды работ</option
+                        ><option value="Сборка и монтаж бытовой техники и предметов интерьера"
+                          >Сборка и монтаж бытовой техники и предметов интерьера</option
+                        ><option value="Трубопровод водоснабжения">Трубопровод водоснабжения</option
+                        ><option value="Трубопровод канализации">Трубопровод канализации</option
+                        ><option value="Установка мойки и монтаж раковины">Установка мойки и монтаж раковины</option
+                        ><option value="Установка и замена полотенцесушителя"
+                          >Установка и замена полотенцесушителя</option
+                        ><option value="Установка и замена счетчиков воды">Установка и замена счетчиков воды</option
+                        ><option value="Монтаж, замена и поверка теплосчетчика"
+                          >Монтаж, замена и поверка теплосчетчика</option
+                        ><option value="Установка и замена радиаторов">Установка и замена радиаторов</option
+                        ><option value="Установка и ремонт унитазов">Установка и ремонт унитазов</option
+                        ><option value="Установка и замена смесителя">Установка и замена смесителя</option
+                        ><option value="Подключение и ремонт джакузи, ванн, душевых"
+                          >Подключение и ремонт джакузи, ванн, душевых</option
+                        ><option value="Разнорабочий">Подключение бытовой техники</option
+                        ><option value="Работа с фильтрами">Работа с фильтрами</option
+                        ><option value="Устранение засоров">Устранение засоров</option
+                        ><option value="Установка и чистка насосов">Установка и чистка насосов</option
+                        ><option value="Прочие работы">Прочие работы</option
+                        ><option value="Уборка квартиры после ремонта">Уборка квартиры после ремонта</option
+                        ><option value="Установка дверей">Установка дверей</option
+                        ><option value="Установка дверных замков">Установка дверных замков</option
+                        ><option value="Мелкие работы (монтаж полок, навес телевизоров, навес зеркал, навес люстр)"
+                          >Мелкие работы (монтаж полок, навес телевизоров, навес зеркал, навес люстр)</option
+                        ><option value="Монтаж электропроводки">Монтаж электропроводки</option
+                        ><option value="Монтаж электрических точек">Монтаж электрических точек</option
+                        ><option value="Монтаж автоматов">Монтаж автоматов</option
+                        ><option value="Малярные работы">Малярные работы</option></select
+                      ></span
+                    >
+                  </div>
+                </div>
+                <div class="constructor__footer">
+                  <div class="constructor__actions-prev btn btn-gray" data-constructor-prev>Назад</div>
+                  <div class="constructor__actions-next btn btn-blue" data-constructor-next>Далее</div>
+                  <button type="submit" class="btn btn-blue constructor__actions-submit">Завершить</button>
+                </div>
+              </form>
+              <aside class="constructor__aside">
+                <div class="constructor__help">
+                  <div class="constructor__help-master">
+                    <div class="constructor__help-master-img"><img src="assets/img/boris.png" alt="" /></div>
+                    <div class="constructor__help-master-name">Борис <small>Руководитель HR</small></div>
+                  </div>
+                  <div class="constructor__help-bubble">
+                    У нас множество свободных вакансий в нескольких городах России! Найдется любая в удобном для вас
+                    месте.
+                  </div>
+                </div>
+                <div class="constructor__current">
+                  <div class="constructor__current-text">Вопрос</div>
+                  <span id="constructor-current">1</span> из <span id="constructor-max">2</span>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navigation">
+      <div class="navigation__additional">
+        <div class="container">
+          <div class="row justify-content-between align-items-center">
+            <div class="col-md-auto">
+              <div class="navigation__title">Всероссийская ассоциация мастеров бытового ремонта</div>
+            </div>
+            <div class="col-md-auto navigation__worktime-col">
+              <div class="navigation__worktime">Без выходных 24/7</div>
+            </div>
+            <div class="col-md-auto">
+              <div class="city-picker">
+                <div class="city-picker__current">
+                  <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M5.59821 0.716705C2.51785 0.716705 0 3.20355 0 6.24597C0 10.8228 5.59821 15.5319 5.59821 15.5319C5.59821 15.5319 11.1964 10.9286 11.1964 6.21951C11.1964 3.17709 8.67856 0.716705 5.59821 0.716705ZM5.59821 9.10319C3.83035 9.10319 2.38392 7.67458 2.38392 5.9285C2.38392 4.18241 3.83035 2.7538 5.59821 2.7538C7.36606 2.7538 8.81249 4.18241 8.81249 5.9285C8.81249 7.67458 7.36606 9.10319 5.59821 9.10319Z"
+                      fill="#2771FF"
+                    />
+                  </svg>
+                  <span>Санкт-Петербург</span>
+                </div>
+                <div class="city-picker__correct" tabindex="0">
+                  <div class="city-picker__correct-title">
+                    Ваш город <span id="is-it-ur-city">Санкт-Петербург</span>?
+                  </div>
+                  <div class="city-picker__correct-actions">
+                    <button class="btn btn-blue-light mr-2 city-picker__correct-actions-close">Да</button>
+                    <button
+                      class="btn btn-white-link city-picker__correct-actions-close"
+                      data-toggle="modal"
+                      data-target="#modal-city"
+                    >
+                      Нет, другой
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-auto">
+              <div class="navigation__contacts">
+                <a href="tel:89214148285" class="navigation__contacts-phone">8 921 414 82 85</a>
+                <div class="navigation__contacts-callback" data-toggle="modal" data-target="#callback">
+                  Заказать звонок
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navigation__main">
+        <div class="container">
+          <div class="row justify-content-between align-items-center">
+            <div class="col-lg-auto col">
+              <a href="index.html" class="logo"
+                ><div class="logo__img">
+                  <svg width="85" height="85" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 10C0 4.47715 4.47715 0 10 0H75C80.5229 0 85 4.47715 85 10V75C85 80.5229 80.5229 85 75 85H10C4.47715 85 0 80.5229 0 75V10Z"
+                      fill="#FB2740"
+                    />
+                    <path
+                      d="M11.7373 69.4673C11.7373 70.0195 11.2896 70.4673 10.7373 70.4673H10C9.44771 70.4673 9 70.0195 9 69.4673V63.5327C9 62.9805 9.44772 62.5327 10 62.5327H15.8073C16.3596 62.5327 16.8073 62.9805 16.8073 63.5327V69.4673C16.8073 70.0195 16.3596 70.4673 15.8073 70.4673H15.07C14.5177 70.4673 14.07 70.0195 14.07 69.4673V65.8224C14.07 65.2701 13.6223 64.8224 13.07 64.8224H12.7373C12.185 64.8224 11.7373 65.2701 11.7373 65.8224V69.4673Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M18.6606 63.5327C18.6606 62.9805 19.1083 62.5327 19.6606 62.5327H22.3024C24.7938 62.5327 26.0395 63.5113 26.0395 65.4685C26.0395 67.4181 24.7938 68.3929 22.3024 68.3929C21.8095 68.3929 21.4098 68.7926 21.4098 69.2856V69.4673C21.4098 70.0195 20.9621 70.4673 20.4098 70.4673H19.6606C19.1083 70.4673 18.6606 70.0195 18.6606 69.4673V63.5327ZM23.314 65.4685C23.314 64.9471 22.9689 64.6864 22.2786 64.6864H22.1863C21.7575 64.6864 21.4098 65.034 21.4098 65.4628C21.4098 65.8917 21.7575 66.2393 22.1863 66.2393H22.2786C22.9689 66.2393 23.314 65.9824 23.314 65.4685Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M28.3175 69.4811C27.532 68.6952 27.1392 67.7015 27.1392 66.5C27.1392 65.2985 27.532 64.3086 28.3175 63.5302C29.103 62.7443 30.2138 62.3514 31.6499 62.3514C33.086 62.3514 34.1968 62.7443 34.9823 63.5302C35.7678 64.3086 36.1605 65.2985 36.1605 66.5C36.1605 67.7015 35.7678 68.6952 34.9823 69.4811C34.1968 70.2594 33.086 70.6486 31.6499 70.6486C30.2138 70.6486 29.103 70.2594 28.3175 69.4811ZM32.8876 67.8035C33.1891 67.4861 33.3399 67.0516 33.3399 66.5C33.3399 65.9484 33.1891 65.5139 32.8876 65.1965C32.594 64.8791 32.1815 64.7204 31.6499 64.7204C31.1183 64.7204 30.7017 64.8791 30.4002 65.1965C30.1067 65.5139 29.9599 65.9484 29.9599 66.5C29.9599 67.0516 30.1067 67.4861 30.4002 67.8035C30.7017 68.1209 31.1183 68.2796 31.6499 68.2796C32.1815 68.2796 32.594 68.1209 32.8876 67.8035Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M43.5949 70.4728C43.5949 70.764 43.3589 71 43.0677 71H41.6346C41.3435 71 41.1075 70.764 41.1075 70.4729C41.1075 70.1955 40.8918 69.9678 40.6167 69.9318C39.6027 69.7989 38.7904 69.4711 38.1797 68.9484C37.4736 68.3363 37.1205 67.5202 37.1205 66.5C37.1205 65.4798 37.4736 64.6675 38.1797 64.063C38.7904 63.5337 39.6027 63.2022 40.6167 63.0684C40.8918 63.0321 41.1075 62.8045 41.1075 62.5271C41.1075 62.236 41.3435 62 41.6346 62H43.0677C43.3589 62 43.5949 62.236 43.5949 62.5272C43.5949 62.8046 43.8105 63.0322 44.0855 63.0688C45.0913 63.2028 45.8957 63.5342 46.4988 64.063C47.205 64.6675 47.5581 65.4798 47.5581 66.5C47.5581 67.5202 47.205 68.3363 46.4988 68.9484C45.8957 69.4706 45.0913 69.7982 44.0855 69.9314C43.8105 69.9678 43.5949 70.1954 43.5949 70.4728ZM41.1432 66.2104C41.1432 65.6109 40.5362 65.0867 40.1368 65.5338C39.927 65.7686 39.8221 66.0907 39.8221 66.5C39.8221 66.9093 39.927 67.2314 40.1368 67.4662C40.5362 67.9133 41.1432 67.3891 41.1432 66.7896V66.2104ZM44.5618 65.5673C44.1807 65.0983 43.5592 65.6197 43.5592 66.2241V66.7759C43.5592 67.3803 44.1807 67.9017 44.5618 67.4327C44.7503 67.2007 44.8445 66.8898 44.8445 66.5C44.8445 66.1102 44.7503 65.7993 44.5618 65.5673Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M56.682 69.4673C56.682 70.0195 56.2343 70.4673 55.682 70.4673H54.9327C54.3805 70.4673 53.9327 70.0195 53.9327 69.4673V68.0869C53.9327 67.7194 53.4162 67.5244 53.1941 67.8171L51.4836 70.0717C51.2946 70.3209 50.9998 70.4673 50.687 70.4673H49.8627C49.3105 70.4673 48.8627 70.0195 48.8627 69.4673V63.5327C48.8627 62.9805 49.3105 62.5327 49.8627 62.5327H50.612C51.1643 62.5327 51.612 62.9805 51.612 63.5327V64.9018C51.612 65.2746 52.1378 65.4723 52.3627 65.1749L54.0611 62.9295C54.2501 62.6796 54.5453 62.5327 54.8587 62.5327H55.682C56.2343 62.5327 56.682 62.9805 56.682 63.5327V69.4673Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M61.2842 69.4673C61.2842 70.0195 60.8365 70.4673 60.2842 70.4673H59.535C58.9827 70.4673 58.535 70.0195 58.535 69.4673V63.5327C58.535 62.9805 58.9827 62.5327 59.535 62.5327H60.2842C60.8365 62.5327 61.2842 62.9805 61.2842 63.5327V64.9041C61.2842 65.1469 61.4811 65.3438 61.7239 65.3438C61.8792 65.3438 62.023 65.2619 62.1022 65.1283L63.3502 63.0229C63.5302 62.719 63.8572 62.5327 64.2104 62.5327H64.8294C65.6211 62.5327 66.0989 63.409 65.67 64.0745L64.478 65.9239C64.2653 66.2539 64.2654 66.678 64.4784 67.0079L65.7158 68.925C66.1452 69.5904 65.6676 70.4673 64.8756 70.4673H64.2422C63.8976 70.4673 63.5772 70.2898 63.3945 69.9977L62.0342 67.8241C61.96 67.7055 61.83 67.6335 61.6901 67.6335C61.4659 67.6335 61.2842 67.8152 61.2842 68.0394V69.4673Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M68.157 69.4811C67.3715 68.6952 66.9787 67.7015 66.9787 66.5C66.9787 65.2985 67.3715 64.3086 68.157 63.5302C68.9425 62.7443 70.0533 62.3514 71.4894 62.3514C72.9255 62.3514 74.0363 62.7443 74.8218 63.5302C75.6073 64.3086 76 65.2985 76 66.5C76 67.7015 75.6073 68.6952 74.8218 69.4811C74.0363 70.2594 72.9255 70.6486 71.4894 70.6486C70.0533 70.6486 68.9425 70.2594 68.157 69.4811ZM72.7271 67.8035C73.0286 67.4861 73.1794 67.0516 73.1794 66.5C73.1794 65.9484 73.0286 65.5139 72.7271 65.1965C72.4335 64.8791 72.021 64.7204 71.4894 64.7204C70.9578 64.7204 70.5412 64.8791 70.2397 65.1965C69.9462 65.5139 69.7994 65.9484 69.7994 66.5C69.7994 67.0516 69.9462 67.4861 70.2397 67.8035C70.5412 68.1209 70.9578 68.2796 71.4894 68.2796C72.021 68.2796 72.4335 68.1209 72.7271 67.8035Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M53.295 23.1727C53.295 22.3713 53.2173 21.7241 52.4167 21.7241H52.022C52.022 17.8716 49.8171 14.5389 46.6029 12.9085L45.7838 17.5513C45.7196 17.9191 45.4002 18.1771 45.0395 18.1771C44.9953 18.1771 44.9511 18.1729 44.9061 18.165C44.4942 18.092 44.219 17.7001 44.2933 17.2878L45.2273 11.9848C44.8772 11.4237 44.2552 11.0499 43.5439 11.0499H40.7398C40.0294 11.0499 39.4074 11.4237 39.0573 11.9848L39.9913 17.2878C40.0647 17.7001 39.79 18.0915 39.3776 18.165C39.3325 18.1729 39.2884 18.1771 39.2442 18.1771C38.8835 18.1771 38.5636 17.9191 38.4999 17.5513L37.6817 12.9095C34.4666 14.5389 32.263 17.8721 32.263 21.7241H31.8679C31.0669 21.7241 30.9901 22.3713 30.9901 23.1727C30.9901 23.9728 31.0674 24.6213 31.8679 24.6213H52.4167C53.2173 24.6213 53.295 23.9728 53.295 23.1727Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M49.3893 17.0261C49.3893 19.1039 46.2797 20.7882 42.4439 20.7882C38.6081 20.7882 35.4985 19.1039 35.4985 17.0261C35.4985 14.9484 38.6081 13.2641 42.4439 13.2641C46.2797 13.2641 49.3893 14.9484 49.3893 17.0261Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M52.5368 51.0388V39.6725C51.9412 39.6725 51.2272 39.6725 50.7505 39.6725C50.5873 41.0299 46.8949 45.2371 44.3137 48.0351L43.1939 43.7175C44.0348 43.2201 44.219 42.1259 44.219 41.2165H39.9746C39.9746 42.1183 40.1577 43.2033 40.9811 43.7042L39.8799 48.0316C37.2969 45.2359 33.5363 41.027 33.3753 39.6719C33.0183 39.6719 32.2455 39.6719 31.6591 39.6719V51.0382L52.5368 51.0388Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M61.675 43.3499C61.675 41.2374 59.9625 39.5249 57.85 39.5249H55.725V50.9999H57.85C59.9625 50.9999 61.675 49.2874 61.675 47.1749V43.3499Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M23 47.1749C23 49.2874 24.7125 50.9999 26.825 50.9999L28.95 50.9999L28.95 39.5249L26.825 39.5249C24.7125 39.5249 23 41.2374 23 43.3499L23 47.1749Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M32.5687 26.1803C32.4364 26.1803 32.3075 26.1682 32.1796 26.151C32.1844 26.5071 32.2174 26.8905 32.284 27.287C32.5335 28.8073 33.1769 29.9842 33.7689 30.072C34.5233 32.2385 35.7174 34.3389 37.1923 35.8811C38.0281 36.7521 38.9531 37.4405 39.9404 37.8597C40.6178 38.1469 41.326 38.3054 42.0535 38.3054C42.7804 38.3054 43.4874 38.1479 44.1678 37.8597C45.1886 37.4265 46.1463 36.7047 47.0039 35.7872C48.4439 34.2547 49.6058 32.1841 50.3471 30.0549C50.9152 29.8768 51.5116 28.7395 51.755 27.2875C51.819 26.9007 51.8529 26.5266 51.8581 26.1785C51.8425 26.1789 51.8268 26.1812 51.8107 26.1812H32.5687V26.1803Z"
+                      fill="white"
+                    />
+                  </svg></div
+              ></a>
+            </div>
+            <div class="col-lg-7 navigation__list-col">
+              <div class="navigation__list">
+                <a class="navigation__list-item navigation__list-item--active" href="index.html">Главная</a>
+                <a class="navigation__list-item" href="about.html">О компании</a>
+                <a class="navigation__list-item" href="success-story.html">Истории успеха</a>
+                <a class="navigation__list-item" href="contacts.html">Контакты</a>
+              </div>
+            </div>
+            <div class="col-lg-auto navigation__vacancies-col">
+              <a href="vacancies.html" class="btn btn-blue">Вакансии</a>
+            </div>
+            <div class="col-md-2 col-3">
+              <div class="navigation__hamburger"><span></span> <span></span> <span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navigation__mobile">
+        <div class="container">
+          <div class="navigation__list">
+            <a class="navigation__list-item navigation__list-item--active" href="index.html">Главная</a>
+            <a class="navigation__list-item" href="about.html">О компании</a>
+            <a class="navigation__list-item" href="success-story.html">Истории успеха</a>
+            <a class="navigation__list-item" href="contacts.html">Контакты</a>
+          </div>
+          <div class="city-picker">
+            <div class="city-picker__current">
+              <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5.59821 0.716705C2.51785 0.716705 0 3.20355 0 6.24597C0 10.8228 5.59821 15.5319 5.59821 15.5319C5.59821 15.5319 11.1964 10.9286 11.1964 6.21951C11.1964 3.17709 8.67856 0.716705 5.59821 0.716705ZM5.59821 9.10319C3.83035 9.10319 2.38392 7.67458 2.38392 5.9285C2.38392 4.18241 3.83035 2.7538 5.59821 2.7538C7.36606 2.7538 8.81249 4.18241 8.81249 5.9285C8.81249 7.67458 7.36606 9.10319 5.59821 9.10319Z"
+                  fill="#2771FF"
+                />
+              </svg>
+              <span>Санкт-Петербург</span>
+            </div>
+            <div class="city-picker__correct" tabindex="0">
+              <div class="city-picker__correct-title">Ваш город <span id="is-it-ur-city">Санкт-Петербург</span>?</div>
+              <div class="city-picker__correct-actions">
+                <button class="btn btn-blue-light mr-2 city-picker__correct-actions-close">Да</button>
+                <button
+                  class="btn btn-white-link city-picker__correct-actions-close"
+                  data-toggle="modal"
+                  data-target="#modal-city"
+                >
+                  Нет, другой
+                </button>
+              </div>
+            </div>
+          </div>
+          <a href="vacancies.html" class="btn btn-blue navigation__vacancies">Вакансии</a>
+        </div>
+      </div>
+    </div>
+    <div class="vacancies-page">
+      <div class="breadcrumbs">
+        <div class="container">
+          <div class="breadcrumbs__list">
+            <a href="/" class="breadcrumbs__list-item">Главная</a>
+            <div class="breadcrumbs__list-item">Вакансии</div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <h2 class="block-title">Вакансии</h2>
+        <div class="vacancies-page__city">
+          <span class="form-select"
+            ><select name="vacancy"
+              ><option value="Все города" selected="selected">Все города</option
+              ><option value="Санкт-Петербург">Санкт-Петербург</option
+              ><option value="Разнорабочий">Москва</option
+              ><option value="Диспетчер">Новосибирск</option
+              ><option value="Бригадир">Сочи</option></select
+            ></span
+          >
+        </div>
+        <div class="vacancies__item vacancies__item--blue">
+          <div class="row">
+            <div class="col-lg-9 col-md-8">
+              <div class="vacancies__item-label vacancies__item-label--blue">Нужен срочно 🔥</div>
+              <div class="vacancies__item-name">Мастер - универсал</div>
+              <div class="vacancies__item-desc">
+                Вы разбираетесь в сантехнике, умеете собирать мебель, Можете быстро и качественно разрешать любые
+                вопросы, связанные с мелким бытовым ремонтом; Вы имеете опыт работы на одной из должностей - техник...
+              </div>
+              <div class="vacancies__item-answer" data-toggle="modal" data-target="#answer">Откликнуться</div>
+            </div>
+            <div class="col-lg-3 col-md-4 d-flex flex-column">
+              <div class="vacancies__item-payment">Договорная</div>
+              <div class="vacancies__item-city">Санкт-Петербург</div>
+              <a href="vacancies-show.html" class="vacancies__item-more">Подробнее о вакансии</a>
+            </div>
+          </div>
+        </div>
+        <div class="vacancies__item vacancies__item--orange">
+          <div class="row">
+            <div class="col-lg-9 col-md-8">
+              <div class="vacancies__item-label vacancies__item-label--orange">Осталось 3 места 💥</div>
+              <div class="vacancies__item-name">Слесарь-сантехник</div>
+              <div class="vacancies__item-desc">
+                Умеете общаться с клиентом и можете найти подход к каждому; Знаете принципы работы сантехники и
+                сантехнических систем; Имеете опыт и навыки проведения ремонтных сантехнических работ в
+                многоквартирных...
+              </div>
+              <div class="vacancies__item-answer" data-toggle="modal" data-target="#answer">Откликнуться</div>
+            </div>
+            <div class="col-lg-3 col-md-4 d-flex flex-column">
+              <div class="vacancies__item-payment">Договорная</div>
+              <div class="vacancies__item-city">Санкт-Петербург</div>
+              <a href="vacancies-show.html" class="vacancies__item-more">Подробнее о вакансии</a>
+            </div>
+          </div>
+        </div>
+        <div class="vacancies__item">
+          <div class="row">
+            <div class="col-lg-9 col-md-8">
+              <div class="vacancies__item-name">Разнорабочий</div>
+              <div class="vacancies__item-desc">
+                Готовность к работе в интенсивном режиме; Навык работы с инструментами; Опыт работы от 1 года (также
+                можем рассмотреть без опыта); Опыт в ремонте сантехники и электрики (также мелкий бытовой...
+              </div>
+              <div class="vacancies__item-answer" data-toggle="modal" data-target="#answer">Откликнуться</div>
+            </div>
+            <div class="col-lg-3 col-md-4 d-flex flex-column">
+              <div class="vacancies__item-payment">от 40 000 <span>₽</span></div>
+              <div class="vacancies__item-city">Санкт-Петербург</div>
+              <a href="vacancies-show.html" class="vacancies__item-more">Подробнее о вакансии</a>
+            </div>
+          </div>
+        </div>
+        <div class="vacancies__item">
+          <div class="row">
+            <div class="col-lg-9 col-md-8">
+              <div class="vacancies__item-name">Диспетчер</div>
+              <div class="vacancies__item-desc">
+                Обработка и распределение заявок по мастерам; Полное сопровождение заявки от этапа передачи мастеру до
+                закрытия; Работа с документами, ККМ;
+              </div>
+              <div class="vacancies__item-answer" data-toggle="modal" data-target="#answer">Откликнуться</div>
+            </div>
+            <div class="col-lg-3 col-md-4 d-flex flex-column">
+              <div class="vacancies__item-payment">от 35 000 <span>₽</span></div>
+              <div class="vacancies__item-city">Санкт-Петербург</div>
+              <a href="vacancies-show.html" class="vacancies__item-more">Подробнее о вакансии</a>
+            </div>
+          </div>
+        </div>
+        <div class="vacancies__item">
+          <div class="row">
+            <div class="col-lg-9 col-md-8">
+              <div class="vacancies__item-name">Бригадир</div>
+              <div class="vacancies__item-desc">
+                Организация работ на объекте, Удаленное руководство выездными мастерами; Контроль сроков и качества
+                работ. Опыт в проведении ремонтных, общестроительных работ; Опыт в управлении бригадой...
+              </div>
+              <div class="vacancies__item-answer" data-toggle="modal" data-target="#answer">Откликнуться</div>
+            </div>
+            <div class="col-lg-3 col-md-4 d-flex flex-column">
+              <div class="vacancies__item-payment">от 60 000 <span>₽</span></div>
+              <div class="vacancies__item-city">Санкт-Петербург</div>
+              <a href="vacancies-show.html" class="vacancies__item-more">Подробнее о вакансии</a>
+            </div>
+          </div>
+        </div>
+        <div class="vacancies__item">
+          <div class="row">
+            <div class="col-lg-9 col-md-8">
+              <div class="vacancies__item-name">Помощник мастера</div>
+              <div class="vacancies__item-desc">
+                Готовность к работе в интенсивном режиме; Навык работы с инструментами; Приветствуется опыт в мелких
+                малярных, штукатурных, отделочных работах...
+              </div>
+              <div class="vacancies__item-answer" data-toggle="modal" data-target="#answer">Откликнуться</div>
+            </div>
+            <div class="col-lg-3 col-md-4 d-flex flex-column">
+              <div class="vacancies__item-payment">от 30 000 <span>₽</span></div>
+              <div class="vacancies__item-city">Санкт-Петербург</div>
+              <a href="vacancies-show.html" class="vacancies__item-more">Подробнее о вакансии</a>
+            </div>
+          </div>
+        </div>
+        <div class="vacancies__item">
+          <div class="row">
+            <div class="col-lg-9 col-md-8">
+              <div class="vacancies__item-name">Электрик</div>
+              <div class="vacancies__item-desc">
+                Общение с клиентом на месте ремонта; Диагностика и выявление проблем с электрикой; Согласование с
+                клиентом перечня, стоимости, сроков работ...
+              </div>
+              <div class="vacancies__item-answer" data-toggle="modal" data-target="#answer">Откликнуться</div>
+            </div>
+            <div class="col-lg-3 col-md-4 d-flex flex-column">
+              <div class="vacancies__item-payment">Договорная</div>
+              <div class="vacancies__item-city">Санкт-Петербург</div>
+              <a href="vacancies-show.html" class="vacancies__item-more">Подробнее о вакансии</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="lead-magnet" style="background-image: url('assets/img/lead-magnet.jpg');">
+      <div class="container">
+        <h2 class="lead-magnet__title">
+          Если ты готов стать частью нашей команды
+          <small>отправляй свой отклик на заинтересовавшую вакансию и мы свяжемся с тобой!</small>
+        </h2>
+        <form class="form-inline lead-magnet__form">
+          <input type="hidden" name="formname" value="Лид-магнит 'Если ты готов стать частью нашей команды'" />
+          <span class="form-control-wrap"
+            ><input class="form-control" name="fullname" placeholder="Ваше имя" required /> </span
+          ><span class="form-control-wrap"
+            ><input type="tel" class="form-control" name="fullname" placeholder="Телефон" required /> </span
+          ><span class="form-select"
+            ><select name="vacancy"
+              ><option value="" disabled="disabled" selected="selected">Вакансия</option
+              ><option value="Мастер-универсал">Мастер-универсал</option
+              ><option value="Слесарь-сантехник">Слесарь-сантехник</option
+              ><option value="Разнорабочий">Разнорабочий</option
+              ><option value="Диспетчер">Диспетчер</option
+              ><option value="Бригадир">Бригадир</option
+              ><option value="Помощник мастера">Помощник мастера</option
+              ><option value="Электрик">Электрик</option></select
+            > </span
+          ><button class="btn btn-blue" type="submit">Отправить отклик</button>
+          <div class="form-text">
+            Нажимая кнопку “Отправить отклик”, я даю согласие на обработку персональных данных
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer__main">
+        <div class="container">
+          <div class="row align-items-center justify-content-between">
+            <div class="col-md-auto">
+              <a href="index.html" class="logo"
+                ><div class="logo__img">
+                  <svg width="85" height="85" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 10C0 4.47715 4.47715 0 10 0H75C80.5229 0 85 4.47715 85 10V75C85 80.5229 80.5229 85 75 85H10C4.47715 85 0 80.5229 0 75V10Z"
+                      fill="#FB2740"
+                    />
+                    <path
+                      d="M11.7373 69.4673C11.7373 70.0195 11.2896 70.4673 10.7373 70.4673H10C9.44771 70.4673 9 70.0195 9 69.4673V63.5327C9 62.9805 9.44772 62.5327 10 62.5327H15.8073C16.3596 62.5327 16.8073 62.9805 16.8073 63.5327V69.4673C16.8073 70.0195 16.3596 70.4673 15.8073 70.4673H15.07C14.5177 70.4673 14.07 70.0195 14.07 69.4673V65.8224C14.07 65.2701 13.6223 64.8224 13.07 64.8224H12.7373C12.185 64.8224 11.7373 65.2701 11.7373 65.8224V69.4673Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M18.6606 63.5327C18.6606 62.9805 19.1083 62.5327 19.6606 62.5327H22.3024C24.7938 62.5327 26.0395 63.5113 26.0395 65.4685C26.0395 67.4181 24.7938 68.3929 22.3024 68.3929C21.8095 68.3929 21.4098 68.7926 21.4098 69.2856V69.4673C21.4098 70.0195 20.9621 70.4673 20.4098 70.4673H19.6606C19.1083 70.4673 18.6606 70.0195 18.6606 69.4673V63.5327ZM23.314 65.4685C23.314 64.9471 22.9689 64.6864 22.2786 64.6864H22.1863C21.7575 64.6864 21.4098 65.034 21.4098 65.4628C21.4098 65.8917 21.7575 66.2393 22.1863 66.2393H22.2786C22.9689 66.2393 23.314 65.9824 23.314 65.4685Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M28.3175 69.4811C27.532 68.6952 27.1392 67.7015 27.1392 66.5C27.1392 65.2985 27.532 64.3086 28.3175 63.5302C29.103 62.7443 30.2138 62.3514 31.6499 62.3514C33.086 62.3514 34.1968 62.7443 34.9823 63.5302C35.7678 64.3086 36.1605 65.2985 36.1605 66.5C36.1605 67.7015 35.7678 68.6952 34.9823 69.4811C34.1968 70.2594 33.086 70.6486 31.6499 70.6486C30.2138 70.6486 29.103 70.2594 28.3175 69.4811ZM32.8876 67.8035C33.1891 67.4861 33.3399 67.0516 33.3399 66.5C33.3399 65.9484 33.1891 65.5139 32.8876 65.1965C32.594 64.8791 32.1815 64.7204 31.6499 64.7204C31.1183 64.7204 30.7017 64.8791 30.4002 65.1965C30.1067 65.5139 29.9599 65.9484 29.9599 66.5C29.9599 67.0516 30.1067 67.4861 30.4002 67.8035C30.7017 68.1209 31.1183 68.2796 31.6499 68.2796C32.1815 68.2796 32.594 68.1209 32.8876 67.8035Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M43.5949 70.4728C43.5949 70.764 43.3589 71 43.0677 71H41.6346C41.3435 71 41.1075 70.764 41.1075 70.4729C41.1075 70.1955 40.8918 69.9678 40.6167 69.9318C39.6027 69.7989 38.7904 69.4711 38.1797 68.9484C37.4736 68.3363 37.1205 67.5202 37.1205 66.5C37.1205 65.4798 37.4736 64.6675 38.1797 64.063C38.7904 63.5337 39.6027 63.2022 40.6167 63.0684C40.8918 63.0321 41.1075 62.8045 41.1075 62.5271C41.1075 62.236 41.3435 62 41.6346 62H43.0677C43.3589 62 43.5949 62.236 43.5949 62.5272C43.5949 62.8046 43.8105 63.0322 44.0855 63.0688C45.0913 63.2028 45.8957 63.5342 46.4988 64.063C47.205 64.6675 47.5581 65.4798 47.5581 66.5C47.5581 67.5202 47.205 68.3363 46.4988 68.9484C45.8957 69.4706 45.0913 69.7982 44.0855 69.9314C43.8105 69.9678 43.5949 70.1954 43.5949 70.4728ZM41.1432 66.2104C41.1432 65.6109 40.5362 65.0867 40.1368 65.5338C39.927 65.7686 39.8221 66.0907 39.8221 66.5C39.8221 66.9093 39.927 67.2314 40.1368 67.4662C40.5362 67.9133 41.1432 67.3891 41.1432 66.7896V66.2104ZM44.5618 65.5673C44.1807 65.0983 43.5592 65.6197 43.5592 66.2241V66.7759C43.5592 67.3803 44.1807 67.9017 44.5618 67.4327C44.7503 67.2007 44.8445 66.8898 44.8445 66.5C44.8445 66.1102 44.7503 65.7993 44.5618 65.5673Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M56.682 69.4673C56.682 70.0195 56.2343 70.4673 55.682 70.4673H54.9327C54.3805 70.4673 53.9327 70.0195 53.9327 69.4673V68.0869C53.9327 67.7194 53.4162 67.5244 53.1941 67.8171L51.4836 70.0717C51.2946 70.3209 50.9998 70.4673 50.687 70.4673H49.8627C49.3105 70.4673 48.8627 70.0195 48.8627 69.4673V63.5327C48.8627 62.9805 49.3105 62.5327 49.8627 62.5327H50.612C51.1643 62.5327 51.612 62.9805 51.612 63.5327V64.9018C51.612 65.2746 52.1378 65.4723 52.3627 65.1749L54.0611 62.9295C54.2501 62.6796 54.5453 62.5327 54.8587 62.5327H55.682C56.2343 62.5327 56.682 62.9805 56.682 63.5327V69.4673Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M61.2842 69.4673C61.2842 70.0195 60.8365 70.4673 60.2842 70.4673H59.535C58.9827 70.4673 58.535 70.0195 58.535 69.4673V63.5327C58.535 62.9805 58.9827 62.5327 59.535 62.5327H60.2842C60.8365 62.5327 61.2842 62.9805 61.2842 63.5327V64.9041C61.2842 65.1469 61.4811 65.3438 61.7239 65.3438C61.8792 65.3438 62.023 65.2619 62.1022 65.1283L63.3502 63.0229C63.5302 62.719 63.8572 62.5327 64.2104 62.5327H64.8294C65.6211 62.5327 66.0989 63.409 65.67 64.0745L64.478 65.9239C64.2653 66.2539 64.2654 66.678 64.4784 67.0079L65.7158 68.925C66.1452 69.5904 65.6676 70.4673 64.8756 70.4673H64.2422C63.8976 70.4673 63.5772 70.2898 63.3945 69.9977L62.0342 67.8241C61.96 67.7055 61.83 67.6335 61.6901 67.6335C61.4659 67.6335 61.2842 67.8152 61.2842 68.0394V69.4673Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M68.157 69.4811C67.3715 68.6952 66.9787 67.7015 66.9787 66.5C66.9787 65.2985 67.3715 64.3086 68.157 63.5302C68.9425 62.7443 70.0533 62.3514 71.4894 62.3514C72.9255 62.3514 74.0363 62.7443 74.8218 63.5302C75.6073 64.3086 76 65.2985 76 66.5C76 67.7015 75.6073 68.6952 74.8218 69.4811C74.0363 70.2594 72.9255 70.6486 71.4894 70.6486C70.0533 70.6486 68.9425 70.2594 68.157 69.4811ZM72.7271 67.8035C73.0286 67.4861 73.1794 67.0516 73.1794 66.5C73.1794 65.9484 73.0286 65.5139 72.7271 65.1965C72.4335 64.8791 72.021 64.7204 71.4894 64.7204C70.9578 64.7204 70.5412 64.8791 70.2397 65.1965C69.9462 65.5139 69.7994 65.9484 69.7994 66.5C69.7994 67.0516 69.9462 67.4861 70.2397 67.8035C70.5412 68.1209 70.9578 68.2796 71.4894 68.2796C72.021 68.2796 72.4335 68.1209 72.7271 67.8035Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M53.295 23.1727C53.295 22.3713 53.2173 21.7241 52.4167 21.7241H52.022C52.022 17.8716 49.8171 14.5389 46.6029 12.9085L45.7838 17.5513C45.7196 17.9191 45.4002 18.1771 45.0395 18.1771C44.9953 18.1771 44.9511 18.1729 44.9061 18.165C44.4942 18.092 44.219 17.7001 44.2933 17.2878L45.2273 11.9848C44.8772 11.4237 44.2552 11.0499 43.5439 11.0499H40.7398C40.0294 11.0499 39.4074 11.4237 39.0573 11.9848L39.9913 17.2878C40.0647 17.7001 39.79 18.0915 39.3776 18.165C39.3325 18.1729 39.2884 18.1771 39.2442 18.1771C38.8835 18.1771 38.5636 17.9191 38.4999 17.5513L37.6817 12.9095C34.4666 14.5389 32.263 17.8721 32.263 21.7241H31.8679C31.0669 21.7241 30.9901 22.3713 30.9901 23.1727C30.9901 23.9728 31.0674 24.6213 31.8679 24.6213H52.4167C53.2173 24.6213 53.295 23.9728 53.295 23.1727Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M49.3893 17.0261C49.3893 19.1039 46.2797 20.7882 42.4439 20.7882C38.6081 20.7882 35.4985 19.1039 35.4985 17.0261C35.4985 14.9484 38.6081 13.2641 42.4439 13.2641C46.2797 13.2641 49.3893 14.9484 49.3893 17.0261Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M52.5368 51.0388V39.6725C51.9412 39.6725 51.2272 39.6725 50.7505 39.6725C50.5873 41.0299 46.8949 45.2371 44.3137 48.0351L43.1939 43.7175C44.0348 43.2201 44.219 42.1259 44.219 41.2165H39.9746C39.9746 42.1183 40.1577 43.2033 40.9811 43.7042L39.8799 48.0316C37.2969 45.2359 33.5363 41.027 33.3753 39.6719C33.0183 39.6719 32.2455 39.6719 31.6591 39.6719V51.0382L52.5368 51.0388Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M61.675 43.3499C61.675 41.2374 59.9625 39.5249 57.85 39.5249H55.725V50.9999H57.85C59.9625 50.9999 61.675 49.2874 61.675 47.1749V43.3499Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M23 47.1749C23 49.2874 24.7125 50.9999 26.825 50.9999L28.95 50.9999L28.95 39.5249L26.825 39.5249C24.7125 39.5249 23 41.2374 23 43.3499L23 47.1749Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M32.5687 26.1803C32.4364 26.1803 32.3075 26.1682 32.1796 26.151C32.1844 26.5071 32.2174 26.8905 32.284 27.287C32.5335 28.8073 33.1769 29.9842 33.7689 30.072C34.5233 32.2385 35.7174 34.3389 37.1923 35.8811C38.0281 36.7521 38.9531 37.4405 39.9404 37.8597C40.6178 38.1469 41.326 38.3054 42.0535 38.3054C42.7804 38.3054 43.4874 38.1479 44.1678 37.8597C45.1886 37.4265 46.1463 36.7047 47.0039 35.7872C48.4439 34.2547 49.6058 32.1841 50.3471 30.0549C50.9152 29.8768 51.5116 28.7395 51.755 27.2875C51.819 26.9007 51.8529 26.5266 51.8581 26.1785C51.8425 26.1789 51.8268 26.1812 51.8107 26.1812H32.5687V26.1803Z"
+                      fill="white"
+                    />
+                  </svg></div
+              ></a>
+            </div>
+            <div class="col-md-auto">
+              <div class="footer__nav">
+                <a href="index.html" class="footer__nav-item">Главная</a>
+                <a href="about.html" class="footer__nav-item">О компании</a>
+                <a href="success-story.html" class="footer__nav-item">Истории успеха</a>
+                <a href="contacts.html" class="footer__nav-item">Контакты</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__additional">
+        <div class="container">
+          <div class="row align-items-center justify-content-between">
+            <div class="col-md-auto">
+              <div class="footer__copyright">Профико © 2020</div>
+              <a href="#" class="footer__privacy">Политика конфиденцальности</a>
+            </div>
+            <div class="col-md-auto">
+              <div class="footer__vicecode">Vicecode</div>
+              <a href="#header" class="footer__to-top"
+                ><svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10.9394 0.93934C11.5252 0.353553 12.4749 0.353553 13.0607 0.93934L22.6066 10.4853C23.1924 11.0711 23.1924 12.0208 22.6066 12.6066C22.0209 13.1924 21.0711 13.1924 20.4853 12.6066L13.5 5.62132V23H10.5V5.62132L3.51476 12.6066C2.92898 13.1924 1.97923 13.1924 1.39344 12.6066C0.807655 12.0208 0.807655 11.0711 1.39344 10.4853L10.9394 0.93934Z"
+                    fill="white"
+                  /></svg
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/js/1.script.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
